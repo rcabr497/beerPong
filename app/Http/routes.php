@@ -14,3 +14,17 @@
 Route::get('/', function () {
     return view('dashboard');
 });
+
+// This is a helper function that creates multiple routes.
+// It creates.
+// GET /players
+// GET /players/create
+// POST /players
+// GET /players/{id}
+// GET /players/{id}/edit
+// PUT /players/{id}
+// DELETE /players/{id}
+// If you want to put them individual you  can use the helper functions
+// get('players', 'PlayerController@index');
+// the @ is used to say which method in the controller to call
+resource('players', 'PlayerController');
