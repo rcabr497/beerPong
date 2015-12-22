@@ -1,10 +1,10 @@
 @extends('master')
 
-@include('layouts/main-menu')
+
 
 @section('content')
       <div class="row">
-        <div class="col s7">
+        <div class="col l7 s12">
         <h4>Top 5 Teams</h4>
           <table class="highlight">
             <thead>
@@ -43,8 +43,8 @@
             </tbody>
           </table>
         </div>
-        <div class="col s5">
-        <h4>Latest 5 Games</h4>
+        <div class="col l5 s12">
+        <h4>Latest Games</h4>
           <table class="highlight">
             <thead>
               <tr>

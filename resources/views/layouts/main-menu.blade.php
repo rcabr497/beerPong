@@ -1,17 +1,19 @@
-<nav class="z-depth-0">
-    <div class="nav-wrapper blue darken-1 z-depth-0">
-        <a href="#" class="brand-logo center">test site</a>
-    </div>
-</nav>
-<nav class="center-align">
-    <div class="nav-wrapper center-align grey lighten-3">
-        <div class="container">
-	        <ul id="nav-mobile" class="center-align hide-on-med-and-down blue-text">
-		        <li><a href="sass.html" class="grey-text text-darken-4"><i class="fa fa-trophy left"></i>Add Game Record</a></li>
-		        <li><a href="badges.html" class="grey-text text-darken-4"><i class="fa fa-user left"></i>Add Player</a></li>
-		        <li><a href="collapsible.html" class="grey-text text-darken-4"><i class="fa fa-users left"></i>Add Team</a></li>
-		        <li><a href="" class="grey-text text-darken-4"><i class="fa fa-bar-chart left"></i>View Stats</a></li>
-	        </ul>
-        </div>
-    </div>
-</nav>
+<div class="main-menu">
+    <h6><a href="/"><i class="fa fa-home"></i> Dashboard</a></h6>
+
+    <h6><i class="fa fa-trophy"></i> Matches</h6> 
+    <ul class="grey lighten-3">
+        <li><a href=""><i class="fa fa-plus"></i> Add New Match</a></li>
+        <li><a href=""><i class="fa fa-list"></i> View All Matches</a></li>
+    </ul>
+    <h6><i class="fa fa-users"></i> Teams</h6>
+    <ul class="grey lighten-3">
+        <li><a href="{{ url('teams/create') }}"><i class="fa fa-plus"></i> Add New Team</a></li>
+        <li><a href="{{ url('teams') }}"><i class="fa fa-list"></i> View All Teams</a></li>
+    </ul>
+    <h6><i class="fa fa-user"></i> Players</h6>
+    <ul class="grey lighten-3">
+        <li><a href="{{ url('players/create') }}"><i class="fa fa-plus"></i> Add New Player</a></li>
+        <li><a href="{{ url('players') }}"><i class="fa fa-list"></i> View All Players</a></li>
+    </ul>
+</div>

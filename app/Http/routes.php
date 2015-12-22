@@ -28,3 +28,5 @@ Route::get('/', function () {
 // get('players', 'PlayerController@index');
 // the @ is used to say which method in the controller to call
 resource('players', 'PlayerController');
+
+resource('teams', 'TeamController');

@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Player;
 use App\Team;
+use App\Player;
+
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class PlayerController extends Controller
+class TeamController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,9 +21,9 @@ class PlayerController extends Controller
     {
         // This gets all rows and all columns from the players table.
         // If you want to change this. You can select specific columns by passing an array of the column names in all()
-        $players = Player::orderBy('first_name', 'asc')->get();
+        $teams = Team::orderBy('name', 'asc')->get();
 
-        return view('players.index', compact('players'));
+        return view('teams.index', compact('teams'));
     }
 
     /**
@@ -34,7 +35,8 @@ class PlayerController extends Controller
     {
         // Just return the view function.
         // If you want to add any data and pass it, just get the data and pass it as a second argument to view()
-        return view('players.create');
+        $players = Player::orderBy('first_name', 'asc')->get();
+        return view('teams.create', compact('players'));
     }
 
     /**
@@ -50,16 +52,15 @@ class PlayerController extends Controller
         // to the that was sent from
         // check out http://laravel.com/docs/5.1/validation#available-validation-rules
         $this->validate($request, [
-            'first_name' => 'required',
-            'last_name' => 'required'
+            'name' => 'required'
         ]);
 
         // Make sure that the classes are imported on top of the file with the use in front.
         // Player is the class and is used up top by doing. use App\Player;
-        Player::create($request->all());
+        Team::create($request->all());
 
         // redirect helper function to send them after storing in database
-        return redirect('players');
+        return redirect('teams');
     }
 
     /**
@@ -72,11 +73,11 @@ class PlayerController extends Controller
     {
         // This method finds the player by id. so the url would be players/1
         // If an id of 1 doesn't exist laravel will throw an exception
-        $player = Player::findOrFail($id);
+        $team = Team::findOrFail($id);
 
         // This passes the data to the view. The compact function is shorthand for an array.
         // In the view you would use $player to access all the columns
-        return view('players.show', compact('player'));
+        return view('teams.show', compact('team'));
     }
 
     /**
@@ -89,11 +90,13 @@ class PlayerController extends Controller
     {
         // This method finds the player by id. so the url would be players/1
         // If an id of 1 doesn't exist laravel will throw an exception
-        $player = Player::findOrFail($id);
+        $team = Team::findOrFail($id);
+        $players = Player::orderBy('first_name', 'asc')->get();
+        
 
         // This passes the data to the view. The compact function is shorthand for an array.
         // In the view you would use $player to access all the columns
-        return view('players.edit', compact('player'));
+        return view('teams.edit', compact('team', 'players'));
     }
 
     /**
@@ -110,23 +113,22 @@ class PlayerController extends Controller
         // to the that was sent from
         // check out http://laravel.com/docs/5.1/validation#available-validation-rules
         $this->validate($request, [
-            'first_name' => 'required',
-            'last_name' => 'required'
+            'name' => 'required'
         ]);
 
         // This method finds the player by id. so the url would be players/1
         // If an id of 1 doesn't exist laravel will throw an exception
-        $player = Player::findOrFail($id);
+        $team = Team::findOrFail($id);
 
         // This method fills all of the fillable attributes of the model with what was passed from the form
-        $player->fill($request->all());
+        $team->fill($request->all());
 
         // Once the attributes are filled with the new data.
         // //Save it
-        $player->save();
+        $team->save();
 
         // Then redirect back to the player show page
-        return redirect("players");
+        return redirect("teams");
     }
 
     /**
@@ -138,15 +140,15 @@ class PlayerController extends Controller
     public function destroy($id)
     {
         // This method has 2 ways of deleting a record in the database
-        $player = Player::findOrFail($id);
+        $team = Team::findOrFail($id);
 
         // Call the delete method
-        $player->delete();
+        $team->delete();
 
         // Or you can do it this way
         // Player::destroy($id);
 
         // redirect whereever you would like. Back to player index in this instance
-        return redirect('players');
+        return redirect('teams');
     }
 }

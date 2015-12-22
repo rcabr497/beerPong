@@ -1,0 +1,63 @@
+.display-player-table form{
+	margin-bottom: 0px;
+}
+
+.display-player-table .btn {
+	font-size: 12px;
+}
+
+.edit-player-btn {
+	margin-right: 10px;
+}
+
+.player-btn {
+	text-align: right;	
+	float: right;
+	padding: 5px;
+}
+
+.player-btn .btn {
+	padding: 0 1.5rem;
+}
+
+.create-team-form select, .edit-team-form select {
+	display: inline;
+	margin-bottom: 10px;
+}
+
+.page-title {
+	border-bottom: 1px solid #E0E0E0;
+	padding-bottom: 15px;
+	margin-bottom: 15px;
+}
+
+.main-menu li {
+	padding: 10px;
+}
+
+.menu-left {
+	padding: 0px!important;
+	height: calc(100% - 64px);
+	border-right: 1px solid #C3C3C3;
+}
+
+.menu-left ul {
+	margin: 0px;
+	border-bottom: 1px solid #C3C3C3;
+	padding-left: 15px;
+}
+.menu-left h6 {
+	border-bottom: 1px solid #C3C3C3;
+	font-size: 1.3rem;
+	padding: 15px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.menu-left a {
+	color: #444;
+}
+
+.main-content {
+	padding: 20px!important;
+}
